@@ -15,10 +15,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 SafeArea(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 18,
-                      vertical: 12,
-                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 18, vertical: 12),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -42,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
 
-                            const SizedBox(width: 14),
+                            SizedBox(width: 14),
 
                             // Notification
                             Stack(
@@ -70,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                                         width: 2,
                                       ),
                                     ),
-                                    child: const Center(
+                                    child: Center(
                                       child: Text(
                                         "2",
                                         style: TextStyle(
@@ -85,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                               ],
                             ),
 
-                            const SizedBox(width: 14),
+                            SizedBox(width: 14),
 
                             // Profile
                             Container(
@@ -97,7 +94,7 @@ class HomeScreen extends StatelessWidget {
                                   color: Colors.white,
                                   width: 2,
                                 ),
-                                image: const DecorationImage(
+                                image: DecorationImage(
                                   image: AssetImage(
                                     "lib/images/profile_icon.png",
                                   ),
@@ -124,14 +121,14 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 30),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "Welcome, Mypcot !!",
                         style: TextStyle(
@@ -161,11 +158,11 @@ class HomeScreen extends StatelessWidget {
                         BoxShadow(
                           color: Colors.black.withOpacity(.08),
                           blurRadius: 20,
-                          offset: const Offset(0, 8),
+                          offset: Offset(0, 8),
                         ),
                       ],
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.search_rounded,
                       color: Color(0xff31456A),
                       size: 34,
@@ -177,50 +174,63 @@ class HomeScreen extends StatelessWidget {
 
             SizedBox(height: 25),
 
-            Padding(padding: const EdgeInsets.all(8.0), child: dashboardCard()),
+            // Padding(padding:   EdgeInsets.all(8.0), child: dashboardCard()),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: customerDashboardCard(),
+            ),
 
             SizedBox(height: 30),
 
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Left Side
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "January, 23 2021",
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Color(0xff8C96B8),
-                          fontWeight: FontWeight.w500,
+                  /// Left Side
+                  Expanded(
+                    flex: 3,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "January, 23 2021",
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Color(0xff8C96B8),
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        "Today",
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xff30456B),
+                        SizedBox(height: 4),
+                        Text(
+                          "Today",
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff30456B),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
 
-                  // Right Side
-                  Row(
-                    children: [
-                      _filterButton(
-                        title: "TIMELINE",
-                        icon: Icons.keyboard_arrow_down_rounded,
-                      ),
-                      const SizedBox(width: 12),
-                      _dateButton(),
-                    ],
+                  SizedBox(width: 10),
+
+                  /// Right Side
+                  Expanded(
+                    flex: 4,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: _filterButton(
+                            title: "TIMELINE",
+                            icon: Icons.keyboard_arrow_down_rounded,
+                          ),
+                        ),
+                        SizedBox(width: 8),
+                        Expanded(child: _dateButton()),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -291,7 +301,7 @@ class HomeScreen extends StatelessWidget {
   Widget _filterButton({required String title, required IconData icon}) {
     return Container(
       height: 38,
-      padding: const EdgeInsets.symmetric(horizontal: 18),
+      padding: EdgeInsets.symmetric(horizontal: 18),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(22),
@@ -299,7 +309,7 @@ class HomeScreen extends StatelessWidget {
           BoxShadow(
             color: Colors.black.withOpacity(.08),
             blurRadius: 15,
-            offset: const Offset(0, 6),
+            offset: Offset(0, 6),
           ),
         ],
       ),
@@ -307,13 +317,13 @@ class HomeScreen extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w600,
               color: Color(0xff435577),
             ),
           ),
-          const SizedBox(width: 6),
+          SizedBox(width: 6),
           Icon(icon, size: 20, color: Color(0xff6A7692)),
         ],
       ),
@@ -323,7 +333,7 @@ class HomeScreen extends StatelessWidget {
   Widget _dateButton() {
     return Container(
       height: 42,
-      padding: const EdgeInsets.symmetric(horizontal: 14),
+      padding: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(22),
@@ -331,24 +341,28 @@ class HomeScreen extends StatelessWidget {
           BoxShadow(
             color: Colors.black.withOpacity(.08),
             blurRadius: 15,
-            offset: const Offset(0, 6),
+            offset: Offset(0, 6),
           ),
         ],
       ),
       child: Row(
-        children: const [
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
           Icon(
             Icons.calendar_today_outlined,
-            size: 18,
+            size: 16,
             color: Color(0xff4C648C),
           ),
-          SizedBox(width: 8),
-          Text(
-            "JAN, 2021",
-            style: TextStyle(
-              fontSize: 10,
-              fontWeight: FontWeight.w600,
-              color: Color(0xff435577),
+          SizedBox(width: 6),
+          Flexible(
+            child: Text(
+              "JAN, 2021",
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 10,
+                fontWeight: FontWeight.w600,
+                color: Color(0xff435577),
+              ),
             ),
           ),
         ],
@@ -429,11 +443,11 @@ class HomeScreen extends StatelessWidget {
       height: 220,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: const Color(0xff25A9D8),
+        color: Color(0xff25A9D8),
         borderRadius: BorderRadius.circular(22),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(18),
+        padding: EdgeInsets.all(18),
         child: Row(
           children: [
             /// Left Side
@@ -443,16 +457,16 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Image.asset("lib/images/orders.png", height: 120),
 
-                  const SizedBox(height: 18),
+                  SizedBox(height: 18),
 
                   Container(
                     width: 100,
                     height: 40,
                     decoration: BoxDecoration(
-                      color: const Color(0xffE86D34),
+                      color: Color(0xffE86D34),
                       borderRadius: BorderRadius.circular(14),
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Text(
                         "Orders",
                         style: TextStyle(
@@ -466,7 +480,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(width: 10),
+            SizedBox(width: 10),
 
             /// Right Side
             SizedBox(
@@ -490,16 +504,16 @@ class HomeScreen extends StatelessWidget {
     return Container(
       width: 130,
       height: 90,
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: const Color(0xffF26522),
+        color: Color(0xffF26522),
         borderRadius: BorderRadius.circular(18),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           RichText(
-            text: const TextSpan(
+            text: TextSpan(
               children: [
                 TextSpan(
                   text: "You have ",
@@ -521,7 +535,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
 
           Expanded(
             child: Center(
@@ -586,7 +600,7 @@ class HomeScreen extends StatelessWidget {
     return Container(
       width: 110,
       height: 100,
-      padding: const EdgeInsets.all(12),
+      padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(18),
@@ -596,7 +610,7 @@ class HomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           RichText(
-            text: const TextSpan(
+            text: TextSpan(
               children: [
                 TextSpan(
                   text: "02 ",
@@ -614,14 +628,14 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 5),
+          SizedBox(height: 5),
 
-          const Text(
+          Text(
             "Orders from",
             style: TextStyle(color: Color(0xff2D4573), fontSize: 13),
           ),
 
-          const SizedBox(height: 20),
+          SizedBox(height: 20),
 
           Expanded(
             child: Center(
@@ -644,7 +658,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-              
+
                     Positioned(
                       left: 20,
                       child: CircleAvatar(
@@ -664,6 +678,247 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget customerDashboardCard() {
+    return Container(
+      height: 220,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Color(0xff07C97B),
+        borderRadius: BorderRadius.circular(22),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(18),
+        child: Row(
+          children: [
+            /// Left Side
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset("lib/images/img1.png", height: 120),
+
+                  SizedBox(height: 18),
+
+                  Container(
+                    width: 130,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Color(0xffFF0066),
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "View Customers",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(width: 12),
+
+            SizedBox(
+              width: 130,
+              height: 180,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Positioned(top: 30, right: 5, child: growthCard()),
+
+                  Positioned(top: -30, right: 20, child: newCustomerCard()),
+
+                  Positioned(bottom: 0, right: 0, child: activeCustomerCard()),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget newCustomerCard() {
+    return Container(
+      width: 115,
+      height: 70,
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      decoration: BoxDecoration(
+        color: Color(0xffFF0058),
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "15 ",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                TextSpan(
+                  text: "New customers",
+                  style: TextStyle(color: Colors.white, fontSize: 10),
+                ),
+              ],
+            ),
+          ),
+
+          Expanded(
+            child: Center(
+              child: SizedBox(
+                width: 50,
+                height: 30,
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Positioned(
+                      left: 0,
+                      child: CircleAvatar(
+                        radius: 15,
+                        backgroundColor: Colors.red,
+                        child: CircleAvatar(
+                          radius: 13,
+                          backgroundImage: AssetImage(
+                            "lib/images/profile_icon.png",
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    Positioned(
+                      left: 20,
+                      child: CircleAvatar(
+                        radius: 15,
+                        backgroundColor: Colors.red,
+                        child: CircleAvatar(
+                          radius: 13,
+                          backgroundImage: AssetImage(
+                            "lib/images/profile_icon.png",
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 40,
+                      child: CircleAvatar(
+                        radius: 15,
+                        backgroundColor: Colors.red,
+                        child: CircleAvatar(
+                          radius: 13,
+                          backgroundImage: AssetImage(
+                            "lib/images/profile_icon.png",
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget growthCard() {
+    return Container(
+      width: 105,
+      height: 60,
+      padding: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text(
+                "1.8%",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff2D4573),
+                ),
+              ),
+              Spacer(),
+              Icon(Icons.arrow_upward, color: Colors.green, size: 16),
+            ],
+          ),
+
+          Spacer(),
+        ],
+      ),
+    );
+  }
+
+  Widget activeCustomerCard() {
+    return Container(
+      width: 125,
+      height: 85,
+      padding: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "10",
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              color: Color(0xff2D4573),
+            ),
+          ),
+
+          Text(
+            "Active\nCustomers",
+            style: TextStyle(fontSize: 11, color: Colors.grey),
+          ),
+
+          SizedBox(height: 6),
+
+          SizedBox(
+            width: 55,
+            height: 28,
+            child: Stack(
+              children: [
+                Positioned(left: 0, child: profileAvatar()),
+                Positioned(left: 16, child: profileAvatar()),
+                Positioned(left: 32, child: profileAvatar()),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget profileAvatar() {
+    return CircleAvatar(
+      radius: 12,
+      backgroundColor: Colors.white,
+      child: CircleAvatar(
+        radius: 10,
+        backgroundImage: AssetImage("lib/images/profile_icon.png"),
       ),
     );
   }
