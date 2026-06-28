@@ -43,7 +43,7 @@ class ApplicationCalendarWidget extends StatelessWidget {
                 Text(
                   dates[index]["date"],
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: selected ? Colors.teal : Color(0xff2D3A4B),
                   ),
