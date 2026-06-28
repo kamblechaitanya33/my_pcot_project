@@ -5,7 +5,7 @@ import 'package:my_pcot_project/views/khata.dart';
 import 'package:my_pcot_project/views/orde.dart';
 
 class BottomNavScreen extends StatefulWidget {
-  const BottomNavScreen({super.key});
+  BottomNavScreen({super.key});
 
   @override
   State<BottomNavScreen> createState() => _BottomNavScreenState();
@@ -14,38 +14,30 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   int currentIndex = 0;
 
-final List<Widget> screens = [
-  const HomeScreen(),
-  const Customers(),
-  const KhataScreen(),
-  const Orders(),
-];
+  final List<Widget> screens = [
+    HomeScreen(),
+    Customers(),
+    KhataScreen(),
+    Orders(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: currentIndex,
-        children: screens,
-      ),
+      body: IndexedStack(index: currentIndex, children: screens),
 
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xff18374A),
+        backgroundColor: Color(0xff18374A),
         elevation: 6,
-        shape: const CircleBorder(),
-        onPressed: () {
-        },
-        child: const Icon(
-          Icons.add,
-          color: Colors.white,
-          size: 30,
-        ),
+        shape: CircleBorder(),
+        onPressed: () {},
+        child: Icon(Icons.add, color: Colors.white, size: 30),
       ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
       bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
+        shape: CircularNotchedRectangle(),
         notchMargin: 8,
         elevation: 8,
         child: SizedBox(
@@ -53,13 +45,12 @@ final List<Widget> screens = [
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              navItem(Icons.home, "Home", 0),
-              navItem(Icons.people_outline, "Customers", 1),
+              navItem("lib/images/home_icon.png", "Home", 0),
+              navItem("lib/images/order_icon.svg", "Orders", 1),
 
-              const SizedBox(width: 40),
-
-              navItem(Icons.receipt_long_outlined, "Khata", 2),
-              navItem(Icons.list_alt_outlined, "Orders", 3),
+              SizedBox(width: 40),
+              navItem("lib/images/profile_icon.svg", "Profile", 2),
+              navItem("lib/images/profile_icon.svg", "Profile", 2),
             ],
           ),
         ),
@@ -67,7 +58,7 @@ final List<Widget> screens = [
     );
   }
 
-  Widget navItem(IconData icon, String title, int index) {
+  Widget navItem(String imagePath, String title, int index) {
     final bool selected = currentIndex == index;
 
     return InkWell(
@@ -81,19 +72,21 @@ final List<Widget> screens = [
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              icon,
+            Image.asset(
+              imagePath,
+              width: 50,
+              height: 50,
               color: selected ? const Color(0xff18374A) : Colors.grey,
-              size: 24,
             ),
+
             const SizedBox(height: 2),
+
             Text(
               title,
               style: TextStyle(
                 fontSize: 11,
                 color: selected ? const Color(0xff18374A) : Colors.grey,
-                fontWeight:
-                    selected ? FontWeight.w600 : FontWeight.normal,
+                fontWeight: selected ? FontWeight.w600 : FontWeight.normal,
               ),
             ),
           ],

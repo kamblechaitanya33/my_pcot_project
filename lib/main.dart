@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:my_pcot_project/views/dashboard.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(  MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+    MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const BottomNavScreen(),
+      home:   BottomNavScreen(),
     );
   }
 }
