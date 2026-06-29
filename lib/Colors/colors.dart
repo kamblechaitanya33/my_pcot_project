@@ -10,7 +10,6 @@ class AppColors {
 
   static const Color primaryText = Color(0xFF2C3D63);
 
-  // The design image shows an orange swatch, but the printed hex is #343434.
   static const Color darkGray = Color(0xFF343434);
 
   static const Color royalBlue = Color(0xFF234DDC);
