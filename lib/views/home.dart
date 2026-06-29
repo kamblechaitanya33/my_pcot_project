@@ -270,57 +270,60 @@ class HomeScreen extends StatelessWidget {
             ApplicationCalendarWidget(),
             SizedBox(height: 20),
 
-            Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(24),
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 15,
-                    color: Colors.grey.withOpacity(.15),
-                  ),
-                ],
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "New order created",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          "New Order created with Order",
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        SizedBox(height: 15),
-                        Text(
-                          "09:00 AM",
-                          style: TextStyle(
-                            color: Colors.deepOrange,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(24),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 15,
+                      color: Colors.grey.withOpacity(.15),
                     ),
-                  ),
-                  CircleAvatar(
-                    radius: 34,
-                    backgroundColor: Colors.deepOrange.withOpacity(.15),
-                    child: Icon(
-                      Icons.shopping_bag,
-                      color: Colors.deepOrange,
-                      size: 34,
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "New order created",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                          SizedBox(height: 8),
+                          Text(
+                            "New Order created with Order",
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          SizedBox(height: 15),
+                          Text(
+                            "09:00 AM",
+                            style: TextStyle(
+                              color: Colors.deepOrange,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                    CircleAvatar(
+                      radius: 34,
+                      backgroundColor: Colors.deepOrange.withOpacity(.15),
+                      child: Icon(
+                        Icons.shopping_bag,
+                        color: Colors.deepOrange,
+                        size: 34,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
 
@@ -357,7 +360,7 @@ class HomeScreen extends StatelessWidget {
               color: Color(0xff435577),
             ),
           ),
-          SizedBox(width: 6),
+          SizedBox(width: 10),
           Icon(icon, size: 20, color: Color(0xff6A7692)),
         ],
       ),
@@ -418,60 +421,7 @@ class HomeScreen extends StatelessWidget {
       child: Center(child: icon),
     );
   }
-
-  Widget _bottomItem(IconData icon, String text, bool selected) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(icon, color: selected ? Colors.indigo : Colors.grey),
-        Text(
-          text,
-          style: TextStyle(
-            color: selected ? Colors.indigo : Colors.grey,
-            fontSize: 12,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _infoCard(Color color, String text, bool top) {
-    return Container(
-      width: 145,
-      padding: EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(18),
-      ),
-      child: Text(text, style: TextStyle(color: Colors.white)),
-    );
-  }
-
-  Widget _pendingCard() {
-    return Container(
-      width: 145,
-      padding: EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "02",
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              color: Color(0xff2F477A),
-            ),
-          ),
-          Text("Pending Orders", style: TextStyle(color: Colors.grey)),
-        ],
-      ),
-    );
-  }
-
+  
   Widget dashboardCard() {
     return Container(
       height: 220,
