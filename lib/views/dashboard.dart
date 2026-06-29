@@ -37,7 +37,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 8,
         elevation: 8,
         child: SizedBox(
@@ -46,11 +46,14 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               navItem("lib/images/home_icon.png", "Home", 0),
-              navItem("lib/images/order_icon.svg", "Orders", 1),
 
-              SizedBox(width: 40),
-              navItem("lib/images/profile_icon.svg", "Profile", 2),
-              navItem("lib/images/profile_icon.svg", "Profile", 2),
+              navItem("lib/images/customers.png", "Customers", 1),
+
+              const SizedBox(width: 40),
+
+              navItem("lib/images/khata.png", "Khata", 2),
+
+              navItem("lib/images/orders_icon.png", "Orders", 3),
             ],
           ),
         ),
@@ -74,12 +77,12 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           children: [
             Image.asset(
               imagePath,
-              width: 50,
-              height: 50,
+              width: 24,
+              height: 24,
               color: selected ? const Color(0xff18374A) : Colors.grey,
             ),
 
-            const SizedBox(height: 2),
+            const SizedBox(height: 4),
 
             Text(
               title,
